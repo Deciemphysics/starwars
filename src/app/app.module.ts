@@ -1,3 +1,4 @@
+import { CharacterFilterPipe } from './character-list/character-list.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -11,7 +12,8 @@ import {CharacterListComponent} from './character-list/character-list.component'
 @NgModule({
   declarations: [
     AppComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    CharacterFilterPipe
   ],
   imports: [
     BrowserModule,

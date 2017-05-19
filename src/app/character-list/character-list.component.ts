@@ -1,12 +1,15 @@
+import { OnInit } from '@angular/core/core';
 import { Character } from './character-list.interface';
 import { Component } from '@angular/core';
 
 
 @Component({
 	selector: 'character-list',
-	templateUrl: 'character-list.component.html'
+	templateUrl: 'character-list.component.html',
+  //style: ['.space-top {padding-top:10px}']
+  styleUrls: ['character-list.component.css']
 })
-export class CharacterListComponent {
+export class CharacterListComponent implements OnInit {
 	characters: Character[] = [
     {
       "name": "Luke Skywalker",
@@ -245,6 +248,10 @@ export class CharacterListComponent {
   ];
 	showDetails: boolean = true;
   charactersFilterBy: string;
+  charactersortBy: string;
+  ngOnInit(): void {
+    console.log('In OnInit');
+  }
 
 	toggleDetails(): void {
 		this.showDetails = !this.showDetails;

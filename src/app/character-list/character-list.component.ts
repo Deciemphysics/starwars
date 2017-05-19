@@ -1,11 +1,13 @@
+import { Character } from './character-list.interface';
 import { Component } from '@angular/core';
+
 
 @Component({
 	selector: 'character-list',
 	templateUrl: 'character-list.component.html'
 })
 export class CharacterListComponent {
-	characters: any[] = [
+	characters: Character[] = [
     {
       "name": "Luke Skywalker",
       "height": 172,

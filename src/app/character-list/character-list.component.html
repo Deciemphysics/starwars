@@ -1,0 +1,25 @@
+<md-toolbar>
+  <md-input-container>
+    <input mdInput placeholder="Filter" [(ngModel)]="charactersFilterBy">
+  </md-input-container>
+</md-toolbar>
+<md-toolbar>
+  Filter by: {{ charactersFilterBy }}
+</md-toolbar>
+
+<md-list-item>
+  <button md-raised-button color="accent" (click)="toggleDetails()">
+    <span>{{showDetails ? 'Hide' : 'Show'}} Details</span>
+  </button>
+</md-list-item>
+
+<md-list *ngIf="characters">
+  <md-list-item *ngFor="let character of characters">
+    <img md-list-avatar [src]="character.avatar" [title]="character.name | lowercase">
+    <h3 md-line> {{character.name | uppercase}} </h3>
+    <div md-line *ngIf="showDetails">
+      <span> {{character.gender}} </span>
+      <span> -- {{character.birth_year}} </span>
+    </div>
+  </md-list-item>
+</md-list>

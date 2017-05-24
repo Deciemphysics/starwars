@@ -4,22 +4,32 @@
   </md-input-container>
 </md-toolbar>
 <md-toolbar>
-  Filter by: {{ charactersFilterBy }}
+  <md-select class="full-width sort-select" [(ngModel)]="charactersSortBy" placeholder="Sort">
+    <md-option *ngFor="let sortOption of sortOptions" [value]="sortOption">{{sortOption}}</md-option>
+  </md-select>
 </md-toolbar>
 
 <md-list-item class="button-container">
+  <button md-raised-button color="background" (click)="reset()">
+    <span>Reset</span>
+  </button>
   <button md-raised-button color="accent" (click)="toggleDetails()">
     <span>{{showDetails ? 'Hide' : 'Show'}} Details</span>
   </button>
 </md-list-item>
 
+<md-list-item *ng-if="errorMessage">
+  <h3 md-line>{{errorMessage}}</h3>
+</md-list-item>
+
 <md-list *ngIf="characters">
-  <md-list-item class="character" *ngFor="let character of characters | characterListFilter: charactersFilterBy">
+  <md-list-item *ngFor="let character of characters | characterListFilter: charactersFilterBy | characterListSort: charactersSortBy" class="character">
     <img md-list-avatar [src]="character.avatar" [title]="character.name | lowercase">
     <h3 md-line> {{character.name | uppercase}} </h3>
     <div md-line *ngIf="showDetails">
       <span> {{character.gender}} </span>
-      <span> -- {{character.birth_year}} </span>
+      <span class="demo-2"> -- {{character.birth_year}} </span>
+      <force md-line [forceStrength]="character.force" [iconSize]="'small'" (forceStrengthClicked)="onForceStrengthClicked($event)"></force>
     </div>
   </md-list-item>
 </md-list>

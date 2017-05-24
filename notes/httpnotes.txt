@@ -1,0 +1,21 @@
+Your SPA angular app needs data. Data is obviously not in the code, so it makes a call to an external
+web service or an API. It then ships it back as a response. 
+
+Async - Callbacks, promises, observable.
+
+We are talking about observables and reactive extensions.
+
+Observables - Help manage async data. Treat these events as a collection, an array whose items arrive async
+over time. Are a proposed feature for ES2016. Since we cant use that, we will be using reactive
+extension (RxJS). Observables are used in Angular.
+
+Observable Operators -- Methods on observables that compose new observables. Transform the source 
+observable in some way. Process each value as it is emitted. Some examples are map, filter, take and merge.
+
+http://rxmarbles.com
+
+Contrasting promises and observables
+Promises - Provides a single future value. Not lazy, but NOT cancelable.
+Observables - Emits multiple values over time, lazy, supports map/filter/reduce/other operators. CANCELABLE  
+
+Character Data Service GET Http Service GET Webserver  RESPONSE Http Service RESPONSE Data Service
